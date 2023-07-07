@@ -32,11 +32,19 @@ class DocqEmbed {
   }
 
   /**
+   * Generate random string to use as the ids of the widget and classes
+   */
+  private readonly random = (): string => {
+    return 'css-entry' + Math.random().toString(36).substring(7)
+  }
+
+  /**
    * Setup the widget to use the bottom right or left corner of the screen
    * @param {Position} position - The position of the widget on the screen left or right
    * @returns {HTMLIFrameElement} widget for embedding
    */
   private readonly smallWidget = (position: Position): HTMLIFrameElement => {
+    const container = document.createElement('div')
     const widget = document.createElement('iframe')
     widget.setAttribute('src', `${this.docqHost}/widget?embedded=true`)
     widget.setAttribute(
@@ -45,7 +53,32 @@ class DocqEmbed {
     ${position}: 0; width: 100%;
     height: 100%; border: none;
   `)
+    console.log(this.docqHost)
     return widget
+  }
+
+  /**
+   * Style an embeddable chat widget for placement in the bottom right or left corner of the screen
+   * @param {Position} position - The position of the widget on the screen left or right
+   */
+  private readonly smallWidgetStyle = (position: Position) => {
+    const style = document.createElement('style')
+    const className = this.random()
+    style.innerHTML = `
+    .${className} {
+      position: fixed;
+      bottom: 20px;
+      ${position}: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      max-width: 400px;
+      max-height: 600px;
+      min-width: 200px;
+      min-height: 400px;
+    }
+    `
+    return { style, className }
   }
 
   /**
@@ -59,25 +92,92 @@ class DocqEmbed {
     const widget = document.createElement('div')
     if (this.debug) {
       widget.innerHTML = `
-    Error connecting to docq server
-    Server address: ${this.docqHost}
+    <p style="color: red;">Error connecting to docq server</p>
+    <h4>Debug mode is on</h4>
+    <p>Server address: ${this.docqHost}<p>
     `} else {
       widget.innerHTML = `
-    Error connecting to docq server
+    <p style="color: red;">Error connecting to docq server<p>
     `
     }
+    widget.style.display = 'flex'
+    widget.style.justifyContent = 'center'
+    widget.style.alignItems = 'center'
+    widget.style.flexDirection = 'column'
+    widget.style.height = '100%'
+    widget.style.width = '100%'
+  
     return widget
   }
 
-  public readonly embed = (): void => {
+  private readonly checkDocqHost = (): boolean => {
+    if (!this.docqHost) {
+      // Set docqHost to use the src attribute of the script tag
+      console.error('server-address attribute is required')
+      return false
+    }
+    return true
+  }
+
+  private readonly appendWidget = (widget: HTMLElement, container?: HTMLElement): void => {
+    if (container) {
+      container.appendChild(widget)
+      return
+    }
+    const body = document.body
+    if (body) {
+      body.appendChild(widget)
+      return
+    }
+
+    const _body = document.createElement('body')
+    _body.style.margin = '0'
+    _body.style.padding = '0'
+    _body.appendChild(widget)
+    document.appendChild(_body)
+  }
+
+  public readonly embed = async (): Promise<void> => {
+    const container = document.getElementById('docq-widget') as HTMLElement
+
     if (this.docqHost) {
+      if (!this.checkDocqHost()) {
+        this.appendWidget(this.defaultWidget(), container)
+        return
+      }
       const widget = this.size === 'large' ? this.largeWidget() : this.smallWidget(this.position)
-      document.body.appendChild(widget)
+      this.appendWidget(widget, container)
     } else {
-      document.body.appendChild(this.defaultWidget())
+      this.appendWidget(this.defaultWidget(), container)
     }
   }
+
+  /**
+   * Check if the returned page is not a 404
+   * if a 404 is returned, return false
+   */
+  private readonly checkPage = async (): Promise<boolean> => {
+    return await fetch(`${this.docqHost}/widget`)
+      .then((response) => {
+        if (this.debug) {
+          const { status, url, redirected } = response
+          console.log({ status, url, redirected })
+        }
+        if (response.status === 404) {
+          return false
+        }
+        return true
+      })
+      .catch(() => {
+        return false
+      }
+      )
+  }
+
 }
 
 const docqEmbed = new DocqEmbed()
-docqEmbed.embed()
+
+window.onload = () => {
+  docqEmbed.embed()
+}

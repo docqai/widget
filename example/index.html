@@ -4,21 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>Example 1</title>
     <style>
         body {
-            position: relative;
             margin: 0;
             padding: 0;
             height: 100vh;
+            position: relative;
         }
-        .chat-embed {
+        #docq-widget {
+            position: absolute;
+            bottom: 0;
+            right: 0;
             width: 400px;
             height: 600px;
-            position: absolute;
-            bottom: 50px;
-            right: 0;
-            z-index: 9999;
+            margin: 1px solid black;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -26,7 +31,8 @@
 <body>
     <!-- <script src="http://172.26.68.148:3000/index.js" docq-host="http://172.26.68.148:8501"></script> -->
     <h1>Example</h1>
-    <script src="http://172.26.68.148:3000/index.js" server-address="http://172.26.68.148:8501" width="400px" height="600px"></script>
+    <div id="docq-widget"></div>
+    <script src="http://172.26.68.148:3000/index.js" server-address="http://172.26.68.148:8501" ></script>
 </body>
 
 </html>
