@@ -1,15 +1,9 @@
-import { ComponentChildren } from "preact";
+import { StateUpdater } from "preact/hooks";
 
-
-interface WidgetConfig {
-  debug: boolean;
-  host: string;
-  theme: string;
-  size: string;
-  minimized: boolean;
-}
-export interface ContextProps {
-  config: WidgetConfig;
-  element?: HTMLElement;
-  children: ComponentChildren;
+export interface WidgetConfig {
+  debug?: boolean;
+  theme?: string;
+  size?: string;
+  opened: boolean;
+  setOpened: StateUpdater<boolean>;
 }

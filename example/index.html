@@ -11,14 +11,14 @@
 </head>
 <body>
     <h1>Hello World!!!</h1>
-    <div id="docq-widget">
+    <div id="docq-widget" >
         <i>Loading widget...</i>
     </div>
     <script>
-        (function(d,o,c,q,w){
-            w=d.createElement(o);w.async=1;w.src=c;q=d.getElementsByTagName(o)[0];
-            q.parentNode.insertBefore(w,q)
-        })(document,'script','./widget.js')
+        (function(d,o,c,q,a,i){
+            i=o.createElement('script');i.async=1;i.src=c;a=o.getElementsByTagName('script')[0];
+            a.parentNode.insertBefore(i,a);d['Docq']=q;
+        })(window, document,'./widget.js', 'http://172.26.68.148:8501')
     </script>
 </body>
 </html>

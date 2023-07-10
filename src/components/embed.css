@@ -3,7 +3,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -13,14 +13,15 @@
 .close-button {
   background: none;
   border: none;
-  color: #f00;
-  font-size: 2.5rem;
+  color: rgb(218, 55, 55);
+  font-size: 2rem;
   cursor: pointer;
-  padding: 0 0.5rem;
+  padding: 0;
 }
 
-.close-button span {
+.close-button button {
   padding: 0;
+  margin: 0;
 }
 
 .close-button:hover {
@@ -28,12 +29,15 @@
 }
 
 .embed-container {
-  position: relative;
+  position: absolute;
   width: 400px;
   height: 500px;
   border-radius: 10px;
   border: 1px solid #ccc;
   overflow: hidden;
+  bottom: 30px;
+  right: 30px;
+  transition: all 0.3s ease-in-out;
 }
 
 .embed-header {
@@ -41,11 +45,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 50px;
+  height: 30px;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   font-size: 1.5rem;
-  font-weight: 700;
   text-align: center;
   z-index: 1;
   display: flex;
@@ -60,5 +63,6 @@
 
 .embed-body {
   width: 100%;
-  height: 450px;
+  height: 100%;
+  padding-top: 30px;
 }
