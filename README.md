@@ -40,3 +40,16 @@ Load the widget from a static URL. Replace `docq-host-url` with the URL of your 
  docq-host-url="docq-host-url"
 ></script>
 ```
+
+
+### Screenshots
+
+##### Minimized state
+
+<img width="824" alt="embed-icon" src="https://github.com/docqai/widget/assets/64925863/195bde7a-4ff2-41bc-8687-4aa551172829">
+
+##### Opened State
+
+<img width="824" alt="sample-embed" src="https://github.com/docqai/widget/assets/64925863/8e5efe47-c5ca-4e46-81a7-36fe1e8d78e5">
+
+
