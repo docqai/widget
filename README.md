@@ -33,8 +33,10 @@ The following code will load the widget from  a server at `https://docq.io`.
 ```
 
 ### Option 2: Static
-
+Load the widget from a static URL. Replace `docq-host-url` with the URL of your Docq server.
 ```html
-<div id="docq-widget"></div>
-<script src="https://docq.io/widget.js"></script>
+<div id="docq-widget"><i>Loading widget...</i></div>
+<script src="https://cdn.jsdelivr.net/gh/docqai/widget@main/public/widget.js"
+ docq-host-url="docq-host-url"
+></script>
 ```
