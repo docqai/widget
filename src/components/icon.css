@@ -1,11 +1,11 @@
 .widget-icon {
-  width:60px;
-  height: 60px;
+  width:64px;
+  height: 64px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #e1dcdc;
   border-radius: 30px;
   position: fixed;
   bottom: 20px;
@@ -17,5 +17,5 @@
 }
 
 .widget-icon:active {
-  background-color: black;
+  opacity: 0.5;
 }

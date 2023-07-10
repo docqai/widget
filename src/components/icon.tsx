@@ -6,6 +6,6 @@ import icon from "../static/icon.svg"
 export const MessageIcon = () => {
 
   return <div className={clsx(style['widget-icon'])}>
-    <img src={icon} alt="docq widget icon" width="70px" height="70px" />
+    <img src={icon} alt="docq widget icon" width="45px" height="45px" />
   </div>
 }

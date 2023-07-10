@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "webpack-dev-server --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production && cp dist/widget.js public/widget.js"
   },
   "devDependencies": {
     "@babel/core": "^7.22.8",
