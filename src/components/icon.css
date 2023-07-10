@@ -1,0 +1,21 @@
+.widget-icon {
+  width:60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 30px;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+}
+
+.widget-icon:hover {
+  background-color: #ccc;
+}
+
+.widget-icon:active {
+  background-color: black;
+}
