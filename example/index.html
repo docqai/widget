@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +10,19 @@
     <link rel="manifest" href="/site.webmanifest">
     <title>Example</title>
 </head>
+
 <body>
     <h1>Hello World!!!</h1>
-    <div id="docq-widget" >
+    <div id="docq-widget">
         <i>Loading widget...</i>
     </div>
-    <script>
+    <!-- <script>
         (function(d,o,c,q,a,i){
             i=o.createElement('script');i.async=1;i.src=c;a=o.getElementsByTagName('script')[0];
-            a.parentNode.insertBefore(i,a);d['Docq']=q;
-        })(window, document,'./widget.js', 'http://172.26.68.148:8501')
-    </script>
+            a.parentNode.insertBefore(i,a);d['__Docq']=q;
+        })(window, document,'https://cdn.jsdelivr.net/gh/docqai/widget@main/public/widget.js', 'http://172.26.68.148:8501')
+    </script> -->
+    <script src="./widget.js" docq-host-url="http://172.26.68.148:8501"></script>
 </body>
+
 </html>
