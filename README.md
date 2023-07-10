@@ -15,7 +15,7 @@ Copy the following code and replace `docq-host-url` with the URL of your Docq se
   (function(d,o,c,q,a,i){
   i=o.createElement('script');i.async=1;i.src=c;a=o.getElementsByTagName('script')[0];
   a.parentNode.insertBefore(i,a);d['Docq']=q;
-  })(window, document,'./widget.js', 'docq-host-url')
+  })(window, document,'https://cdn.jsdelivr.net/gh/docqai/widget@main/public/widget.js', 'docq-host-url')
 </script>
 ```
 
@@ -28,7 +28,7 @@ The following code will load the widget from  a server at `https://docq.io`.
   (function(d,o,c,q,a,i){
   i=o.createElement('script');i.async=1;i.src=c;a=o.getElementsByTagName('script')[0];
   a.parentNode.insertBefore(i,a);d['Docq']=q;
-  })(window, document,'./widget.js', 'https://docq.io')
+  })(window, document,'https://cdn.jsdelivr.net/gh/docqai/widget@main/public/widget.js', 'https://docq.io')
 </script>
 ```
 
