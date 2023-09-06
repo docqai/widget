@@ -40,6 +40,8 @@ export const Session = (): string => {
   if (!id) {
     id = uuidv4();
     setCookie(key, id, 1)
+  } else {
+    setCookie(key, id, 1)
   }
   return id
 }
