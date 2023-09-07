@@ -1,4 +1,5 @@
 import { useEffect } from 'preact/hooks'
+import { Session } from './session'
 
 export const useEmbed = (opened: boolean) => {
 
@@ -12,8 +13,9 @@ export const useEmbed = (opened: boolean) => {
       console.log('scripts', scripts)
     }
     const dataUrl = __curretScript.getAttribute('docq-host-url')
+    const __session_id = Session();
 
-    let __URL =  dataUrl
+    let __URL = dataUrl
     if (!__URL && !win.__Docq) {
       throw new Error('Docq: host url is not defined')
     }
@@ -21,9 +23,8 @@ export const useEmbed = (opened: boolean) => {
     const dataContainer = document.getElementById('docq-data-container') as HTMLElement
     dataContainer.innerHTML = ''
     const frame = document.createElement('iframe')
-    frame.setAttribute('src', `${__URL}/widget?embedded=true`)
+    frame.setAttribute('src', `${__URL}/widget?embedded=true&id=${__session_id}`)
     frame.setAttribute('style', 'border: none; width: 100%; height: 100%;')
-    dataContainer.innerHTML = ''
-    dataContainer.appendChild(frame)
+      dataContainer.appendChild(frame)
   }, [opened])
 }
