@@ -33,7 +33,7 @@ The following code will load the widget from  a server at `http://localhost:8501
 <div id="docq-widget" ><i>Loading widget...</i></div>
 <script>
   (function(d,o,c,q,a,i){
-  i=o.createElement('script');i.async=1;i.src=c;a=o.getElementsByTagName('script')[0];
+  i=o.createElement('script');i.async=1;i.src=c;d['__DocqSID']=a;a=o.getElementsByTagName('script')[0];
   a.parentNode.insertBefore(i,a);d['__Docq']=q;
   })(window, document,'https://cdn.jsdelivr.net/gh/docqai/widget@main/public/widget.js', 'http://localhost:8501','default')
 </script>
