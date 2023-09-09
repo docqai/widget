@@ -1,6 +1,11 @@
 import { useEffect } from 'preact/hooks'
 import { Session } from './session'
 
+
+/**
+ * A custom hook that embeds the chat widget into the web page.
+ * @param opened Chat widget opened state.
+ */
 export const useEmbed = (opened: boolean) => {
 
   useEffect(() => {
