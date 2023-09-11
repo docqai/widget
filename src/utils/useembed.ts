@@ -32,7 +32,7 @@ export const useEmbed = (opened: boolean) => {
     const dataContainer = document.getElementById('docq-data-container') as HTMLElement
     dataContainer.innerHTML = ''
     const frame = document.createElement('iframe')
-    frame.setAttribute('src', `${__URL}/widget?embedded=true&session=${__session_id}&space=${__SID}`)
+    frame.setAttribute('src', `${__URL}/widget?embedded=true&session_id=${__session_id}&space_group_id=${__SID}`)
     frame.setAttribute('style', 'border: none; width: 100%; height: 100%;')
       dataContainer.appendChild(frame)
   }, [opened])
