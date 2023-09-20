@@ -15,10 +15,9 @@ export const useEmbed = (opened: boolean) => {
     if (!__curretScript) {
       const scripts = document.getElementsByTagName('script')
       __curretScript = scripts[scripts.length - 1]
-      console.log('scripts', scripts)
     }
     const dataUrl = __curretScript.getAttribute('docq-host-url')
-    const spaceId = __curretScript.getAttribute('docq-sid')
+    const docqConfig = __curretScript.getAttribute('docq-config')
     const __session_id = Session();
 
     let __URL = dataUrl
@@ -27,12 +26,13 @@ export const useEmbed = (opened: boolean) => {
     }
 
     if (!__URL) __URL = win.__Docq;
-    const __SID = spaceId ? spaceId : !!win.__DocqSID? win.__DocqSID : 'default';
+    const __SID = docqConfig ? docqConfig : !!win.__DocqSID? win.__DocqSID : 'default:default';
   
     const dataContainer = document.getElementById('docq-data-container') as HTMLElement
     dataContainer.innerHTML = ''
     const frame = document.createElement('iframe')
-    frame.setAttribute('src', `${__URL}/widget?embedded=true&session_id=${__session_id}&space_group_id=${__SID}`)
+    const [param1, param2] = __SID.split(':')
+    frame.setAttribute('src', `${__URL}/widget?embedded=true&session_id=${__session_id}&param1=${param1}&param2=${param2}`)
     frame.setAttribute('style', 'border: none; width: 100%; height: 100%;')
       dataContainer.appendChild(frame)
   }, [opened])
