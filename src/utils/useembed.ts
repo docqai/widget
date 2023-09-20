@@ -26,7 +26,7 @@ export const useEmbed = (opened: boolean) => {
     }
 
     if (!__URL) __URL = win.__Docq;
-    const __SID = docqConfig ? docqConfig : !!win.__DocqSID? win.__DocqSID : 'default:default';
+    const __SID = docqConfig ? docqConfig : !!win.__DocqSID? win.__DocqSID : '1000:1';
   
     const dataContainer = document.getElementById('docq-data-container') as HTMLElement
     dataContainer.innerHTML = ''

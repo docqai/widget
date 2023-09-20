@@ -27,7 +27,7 @@ Copy the following code and replace `docq-host-url` with the URL of your Docq se
 ```
 
 #### Example
-The following code will load the widget from  a server at `http://localhost:8501` with the `org-id=1` and `space-group-id=1`.
+The following code will load the widget from  a server at `http://localhost:8501` with the `org-id=1000` and `space-group-id=1`.
 
 ```html
 <div id="docq-widget" ><i>Loading widget...</i></div>
@@ -35,7 +35,7 @@ The following code will load the widget from  a server at `http://localhost:8501
   (function(d,o,c,q,a,i){
   i=o.createElement('script');i.async=1;i.src=c;d['__DocqSID']=a;a=o.getElementsByTagName('script')[0];
   a.parentNode.insertBefore(i,a);d['__Docq']=q;
-  })(window, document,'https://cdn.jsdelivr.net/gh/docqai/widget@main/public/widget.js', 'http://localhost:8501','1:1')
+  })(window, document,'https://cdn.jsdelivr.net/gh/docqai/widget@main/public/widget.js', 'http://localhost:8501','1000:1')
 </script>
 ```
 
