@@ -1,46 +1,45 @@
-# Docq Embeddable widget
+# Docq Embeddable Widget
 
-This is a widget that can be embedded in any website to give access to the Docq public chat interface.
+The Docq Embeddable Widget is a tool that allows you to seamlessly integrate the Docq public chat interface into your website.
 
+## Overview
 
-## Docq Documentation
-To find out more about Docq, check out the documentation:
+For a comprehensive understanding of Docq, please refer to the official documentation:
 - [Overview](https://docqai.github.io/docq/overview/introduction/)
 - [User Guide](https://docqai.github.io/docq/user-guide/getting-started/)
-- [Developers guide](https://docqai.github.io/docq/developer-guide/getting-started)
+- [Developers Guide](https://docqai.github.io/docq/developer-guide/getting-started)
 
 ## Usage
-To add the widget to your website:
 
-### Option 1: Dynamic
+### Option 1: Dynamic Embed
 
-Copy the following code and replace `docq-host-url` with the URL of your Docq server and `org-id:space-group-id` with the oganization ID and space group ID you want to use for the embed.
+To dynamically embed the widget, copy and paste the following code into your website, replacing [placeholders](https://github.com/docqai/widget#placeholders) with the appropriate values:
 
 ```html
-<div id="docq-widget" ><i>Loading widget...</i></div>
+<div id="docq-widget"><i>Loading widget...</i></div>
 <script>
-  (function(d,o,c,q,a,i){
-  i=o.createElement('script');i.async=1;i.src=c;d['__DocqSID']=a;a=o.getElementsByTagName('script')[0];
-  a.parentNode.insertBefore(i,a);d['__Docq']=q;
-  })(window, document,'https://cdn.jsdelivr.net/gh/docqai/widget@main/public/widget.js', 'docq-host-url', 'org-id:space-group-id')
+  (function(d, o, c, q, a, i) {
+    i = o.createElement('script');i.async = 1;i.src = c;d['__DocqSID'] = a;
+    a = o.getElementsByTagName('script')[0];a.parentNode.insertBefore(i, a);d['__Docq'] = q;
+  })(window, document, 'https://cdn.jsdelivr.net/gh/docqai/widget@main/public/widget.js', 'docq-host-url', 'org-id:space-group-id')
 </script>
 ```
 
-#### Example
-The following code will load the widget from  a server at `http://localhost:8501` with the `org-id=1000` and `space-group-id=1`.
+#### Example 1: Dynamic Embed
+The following code will load the widget from a server at `http://localhost:8501` with the organization ID `1000` and space group ID `1`:
 
 ```html
-<div id="docq-widget" ><i>Loading widget...</i></div>
+<div id="docq-widget"><i>Loading widget...</i></div>
 <script>
-  (function(d,o,c,q,a,i){
-  i=o.createElement('script');i.async=1;i.src=c;d['__DocqSID']=a;a=o.getElementsByTagName('script')[0];
-  a.parentNode.insertBefore(i,a);d['__Docq']=q;
-  })(window, document,'https://cdn.jsdelivr.net/gh/docqai/widget@main/public/widget.js', 'http://localhost:8501','1000:1')
-</script>
+  (function(d, o, c, q, a, i) {
+    i = o.createElement('script');i.async = 1;i.src = c;d['__DocqSID'] = a;
+    a = o.getElementsByTagName('script')[0];a.parentNode.insertBefore(i, a);d['__Docq'] = q;
+  })(window, document, 'http://localhost:8501', '1000:1')
 ```
 
-### Option 2: Static
-Load the widget from a static URL. Replace `docq-host-url` with the URL of your Docq server and `docq-config` with the oganization ID and space group ID you want to use for the embed.
+### Option 2: Static Embed
+
+To statically embed the widget, copy and paste the following code into your website, replacing [placeholders](https://github.com/docqai/widget#placeholders) with the appropriate values:
 
 ```html
 <div id="docq-widget"><i>Loading widget...</i></div>
@@ -49,6 +48,13 @@ Load the widget from a static URL. Replace `docq-host-url` with the URL of your 
 ></script>
 ```
 
+#### Example 2: Static Embed
+The following code will load the widget from a server at `http://localhost:8501` with the organization ID `1000` and space group ID `1`:
+
+```html
+<div id="docq-widget"><i>Loading widget...</i></div>
+<script src="https://cdn.jsdelivr.net/gh/docqai/widget@main/public/widget.js" docq-host-url="http://localhost:8501" docq-config="1000:1"></script>
+```
 
 ### Screenshots
 
@@ -59,3 +65,16 @@ Load the widget from a static URL. Replace `docq-host-url` with the URL of your 
 ##### Opened State
 
 <img width="824" alt="sample-embed" src="https://github.com/docqai/widget/assets/64925863/8e5efe47-c5ca-4e46-81a7-36fe1e8d78e5">
+
+
+##### Placeholders
+
+Below is a list of placeholders that are used and what they represent:
+- `docq-host-url`: URL of the Docq server
+- `org-id`: Organization ID
+- `space-group-id`: Space Group ID
+- `docq-config`: Configuration string in the format `org-id:space-group-id`
+  
+
+
+
