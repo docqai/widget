@@ -66,6 +66,16 @@ The following code will load the widget from a server at `http://localhost:8501`
 
 <img width="824" alt="sample-embed" src="https://github.com/docqai/widget/assets/64925863/8e5efe47-c5ca-4e46-81a7-36fe1e8d78e5">
 
+### Development
+To run the widget locally:
+- Clone the repository.
+- Open the file `example/index.html` and update the [placeholders](https://github.com/docqai/widget#placeholders) with the appropriate values for your docq server.
+-  Then run the following commands:
+
+```bash
+npm install
+npm start
+```
 
 ##### Placeholders
 
