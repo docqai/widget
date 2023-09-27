@@ -10,10 +10,12 @@ For a comprehensive understanding of Docq, please refer to the official document
 - [Developers Guide](https://docqai.github.io/docq/developer-guide/getting-started)
 
 ## Usage
+You can embed the docq widget into your website in two ways: dynamically or statically.
 
-### Option 1: Dynamic Embed
+### Option 1: Dynamic Embed (Non-blocking)
 
-To dynamically embed the widget, copy and paste the following code into your website, replacing [placeholders](https://github.com/docqai/widget#placeholders) with the appropriate values:
+To dynamically embed the widget, copy and paste the following code into the `body` tag website, replacing [placeholders](https://github.com/docqai/widget#placeholders) with the appropriate values:
+Note: This option will not block the loading of the rest of the page until the widget is loaded.
 
 ```html
 <div id="docq-widget"><i>Loading widget...</i></div>
@@ -37,9 +39,10 @@ The following code will load the widget from a server at `http://localhost:8501`
   })(window, document, 'http://localhost:8501', '1000:1')
 ```
 
-### Option 2: Static Embed
+### Option 2: Static Embed (Blocking)
 
-To statically embed the widget, copy and paste the following code into your website, replacing [placeholders](https://github.com/docqai/widget#placeholders) with the appropriate values:
+To statically embed the widget, copy and paste the following code into the `body` tag your website, replacing [placeholders](https://github.com/docqai/widget#placeholders) with the appropriate values:
+Note: This option will block the loading of the rest of the page until the widget is loaded.
 
 ```html
 <div id="docq-widget"><i>Loading widget...</i></div>
